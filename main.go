@@ -1,5 +1,9 @@
 package main
 
-// func main() {
-// 	mapMethod("mandi")
-// }
+import "fmt"
+
+func main() {
+	newBill := createBill("shaik")
+
+	fmt.Println(newBill)
+}

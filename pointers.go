@@ -15,7 +15,7 @@ func updateOrignalValue(n *string) { // *string represent that it accepts the po
 	*n = "new value" //Here we are derefrencing the pointer, and assigning a new value to that pointer
 }
 
-func main() {
+func pointerMain() {
 
 	x := "value" //since its a string we cannot update it direclty.
 
