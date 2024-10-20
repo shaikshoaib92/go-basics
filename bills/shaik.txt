@@ -1,0 +1,6 @@
+The Total Bill BreakDown: 
+biryani:                  ...Rs.200 
+juice:                    ...Rs.50 
+cool drink:               ...Rs.10 
+TIP:                      ...10 
+Total:                    ...270

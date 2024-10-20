@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 type bills struct {
 	name  string
@@ -16,12 +19,9 @@ But recevier funcation when associated with struct are accessable from the struc
 
 func myBill(n string) bills {
 	x := bills{
-		name: n,
-		items: map[string]int{
-			"biryani": 100,
-			"water":   10,
-		},
-		tip: 19,
+		name:  n,
+		items: map[string]int{},
+		tip:   0,
 	}
 
 	return x
@@ -40,7 +40,7 @@ func (b bills) format() string {
 	//This function creates a copy of bills.
 	//Not only this every argument we pass to any function creates a copy of that.
 
-	fs := fmt.Sprintf("The Toatl Bill BreakDonw: \n")
+	fs := fmt.Sprintf("The Total Bill BreakDown: \n")
 
 	var total int = 0
 
@@ -73,6 +73,24 @@ func (b *bills) updateTip(t float64) {
 
 func (b *bills) updateItems(item string, price int) {
 	b.items[item] = price
+}
+
+func (b *bills) save() {
+
+	data := []byte(b.format())
+
+	err := os.WriteFile("bills/"+b.name+".txt", data, 0644) //This will save the data,
+	/*
+		It takes 3 args.
+		1. location.
+		2. data.
+		3. permission.
+	*/
+
+	if err != nil {
+		panic(err)
+	}
+
 }
 
 func dummyMain() {
